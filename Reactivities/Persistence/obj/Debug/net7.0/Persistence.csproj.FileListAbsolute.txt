@@ -1,0 +1,15 @@
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\bin\Debug\net7.0\Persistence.deps.json
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\bin\Debug\net7.0\Persistence.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\bin\Debug\net7.0\Persistence.pdb
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\bin\Debug\net7.0\Domain.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\bin\Debug\net7.0\Domain.pdb
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.AssemblyReference.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfoInputs.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.AssemblyInfo.cs
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.csproj.CopyComplete
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\refint\Persistence.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\Persistence.pdb
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Persistence\obj\Debug\net7.0\ref\Persistence.dll

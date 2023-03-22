@@ -17,3 +17,9 @@ React Developer Tools
 
 -------------------------------------------
 --------EJECUTAR CREATE-PROJECT-WIN.PS1-
+
+Ejecutar Nuget() instalar entityFrameworkcore.desing(API)
+Ejecutar Nuget() instalar Swashbucle.AspNetCore(API)
+Ejecutar Nuget() instalar Microsoft.EntityFrameworkCore.Sqlite(PERSISTENCE)
+
+------- Ejecutar DontNet run--------------------

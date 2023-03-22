@@ -1,0 +1,12 @@
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\bin\Debug\net7.0\Domain.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\bin\Debug\net7.0\Domain.pdb
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\Domain.pdb
+C:\Repos\TestPragma\PragmaReactNetcore\Reactivities\Domain\obj\Debug\net7.0\ref\Domain.dll
