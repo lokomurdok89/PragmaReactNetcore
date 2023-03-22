@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj": {}
+    "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj": {
+    "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
+        "projectUniqueName": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
+        "projectPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\dtoledo\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\obj\\",
+        "outputPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,15 +25,14 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj"
+              "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj"
               },
               "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Persistence\\Persistence.csproj": {
                 "projectPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Persistence\\Persistence.csproj"
@@ -50,6 +49,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -70,14 +79,14 @@
         }
       }
     },
-    "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
+    "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj",
+        "projectUniqueName": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj",
+        "projectPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\dtoledo\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\obj\\",
+        "outputPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -157,8 +166,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj"
+              "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj": {
+                "projectPath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Domain\\Domain.csproj"
               }
             }
           }
