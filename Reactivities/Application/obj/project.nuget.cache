@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/BvyGIg9ZzBiNHfHjFMkHIJoNy+hdFL7yi3OV8YsznetbnZX9wSXvt0XZvFGyz0Ox0mTzTfdvvYxKVZ6p2itCA==",
+  "dgSpecHash": "2jikyagSBeTPVa0noC++BqNGUdyonlRQuaql/pQGSp67g99Ip7pjf9oH82E2BwlFNmP7d0Fw6L9GKlIq308duw==",
   "success": true,
-  "projectFilePath": "c:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dtoledo\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

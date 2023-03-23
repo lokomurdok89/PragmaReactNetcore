@@ -30,5 +30,3 @@ volver capeta raiz  y ejecutar -- genera migración y para generar el seed desde
 
 dotnet ef migrations add InitialCreate -s API -p Persistence
 ------------------------------------------
-
-----------insta
