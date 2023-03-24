@@ -28,20 +28,21 @@ function App() {
       })
   },[])
 
-  function handleCreateOrEditActivity(user: User){
+  function handleCreateOrEditActivity(user: User| undefined){
     setSubmitting(true);
-    if(user.id){
-      agent.Users.update(user).then(()=>{
-        setUsers([...users.filter(x => x.id != user.id),user])
-      })
-    }else{
-      user.id = uuid();
-      agent.Users.create(user).then(()=>{
-        setUsers([...users, user]);  
-      })
+    if(typeof user !== "undefined"){ 
+      if(user.id){
+        agent.Users.update(user).then(()=>{
+          setUsers([...users.filter(x => x.id != user.id),user])
+        })
+      }else{
+        user.id = uuid();
+        agent.Users.create(user).then(()=>{
+          setUsers([...users, user]);  
+        })
+      }
     }
-    setSubmitting(false);
-    setIsOpen(false);    
+    setSubmitting(false); 
   }
 
   function handleDeleteActivity(id:string){
@@ -61,9 +62,7 @@ function App() {
                 users={users}
                 createOrEdit={handleCreateOrEditActivity}
                 deleteUser ={handleDeleteActivity}
-                submitting ={submitting}
-                setOpen = {setIsOpen}
-                isOpen = {isOpen}
+                submitting ={submitting}              
      />
     </Container>
 

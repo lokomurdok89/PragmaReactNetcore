@@ -1,46 +1,52 @@
 import { useState } from "react";
 import { Grid } from "semantic-ui-react";
 import { User } from "../../../app/model/user";
-import UserForm from "../form/UserForm";
 import UserList from "./UserList"
+import CreateUser from "../form/CreateUser";
+import EditUser from "../form/EditUser";
 
 
 interface Props{
     users:User[];
-   // selectedUser:User | undefined;
-  //  selectUser:(id:string) => void;
-  //  cancelSelectUser: () => void;
-  //  editMode: boolean;
-  //  openForm: (id:string) => void;
-  //  closeForm: () => void;
-    createOrEdit: (user:User)=> void;
+    createOrEdit: (user:User| undefined)=> void;
     deleteUser:(id:string)=> void;
     submitting:boolean;
-    setOpen:(flag:boolean)=> void;
-    isOpen:boolean;
 }
-export default function UserDashBoard({users,createOrEdit, deleteUser,submitting, setOpen,isOpen}: Props){
+const _objEmpty = {
+    id:'',
+    nombre:'',
+    correo:'',
+    fechaNacimiento:'',
+    rut:''
+}
+export default function UserDashBoard({users,createOrEdit, deleteUser,submitting}: Props){
+       
+        const [selectedUser, setSelectedUser] = useState<User>(_objEmpty);      
+        const [isCreating, setIsCreating] = useState<boolean>(false);  
+        const [isEditing, setIsEditing] = useState<boolean>(false);    
 
-       
-        const [selectedUser, setSelectedUser] = useState<User | undefined>(undefined);      
-       
-        function handleSelectUser(id:string){
-            setSelectedUser(users.find(x => x.id===id));
-            setOpen(true);
+
+        function handleEditUser(id:string){            
+            var _tmp = users.find(x => x.id===id);               
+            if(_tmp){setSelectedUser(_tmp);}
+            setIsEditing(true);
+            //setOpen(true);
         } 
-        const handleOpenModal = () => {
-            setSelectedUser(undefined);
-            setOpen(true);
+        const handleOpenCreate = () => {
+            setSelectedUser(_objEmpty);
+            setIsCreating(true);
         };
-        const handleCloseModal = () => {
-            setSelectedUser(undefined);
-            setOpen(false);
+      const handleCloseModal = () => {
+            setSelectedUser(_objEmpty);
+            setIsEditing(false);
+            setIsCreating(false);
         };
 return (
         <Grid>
-        <Grid.Column width='12'>
-            <UserList handleOpenModal={handleOpenModal} users={users} selectUser={handleSelectUser}  deleteUser={deleteUser} submitting={submitting}/>          
-            <UserForm isOpen={isOpen} closeForm ={handleCloseModal} user={selectedUser} createOrEdit={createOrEdit} submitting={submitting}></UserForm>
+        <Grid.Column width='15'>
+            <UserList handleOpenCreateModal={handleOpenCreate} users={users} selectUser={handleEditUser}  deleteUser={deleteUser} submitting={submitting}/>          
+            <EditUser isOpen={isEditing} closeForm ={handleCloseModal} user={selectedUser} createOrEdit={createOrEdit} submitting={submitting} ></EditUser>
+            <CreateUser isOpen={isCreating} user={_objEmpty} closeForm={handleCloseModal} createOrEdit={createOrEdit} submitting={submitting}/>
         </Grid.Column>     
 
         </Grid>
