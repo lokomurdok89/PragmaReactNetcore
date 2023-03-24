@@ -1,17 +1,28 @@
 import React, { SyntheticEvent, useState } from "react";
-import { User } from "../../app/model/user";
-import {  Button, Checkbox, Icon, Item, ItemContent, Label, Segment, Table } from "semantic-ui-react";
+
+import {  Button, Checkbox, Dropdown, Icon, Item, ItemContent, Label, Pagination, PaginationProps, Segment, Table } from "semantic-ui-react";
+import { User } from "../../../app/model/user";
 
 interface Props{
     users:User[];
     selectUser: (id:string) => void;
     deleteUser: (id:string) => void;
+    handleOpenModal: () => void;
     submitting:boolean;
 }
 
-export default function UserList({users,selectUser,deleteUser,submitting}:Props){
+export default function UserList({users,selectUser,deleteUser,submitting,handleOpenModal}:Props){
 
     const[target,setTarget] = useState('');
+    const [activePage, setActivePage] = useState(1);
+
+    const PAGE_SIZE = 5; // Cantidad de elementos por página
+    const tableData = users.slice((activePage - 1) * PAGE_SIZE, activePage * PAGE_SIZE);    
+    
+    const handlePaginationChange = (event:React.MouseEvent<HTMLAnchorElement>, { activePage }:PaginationProps | any) => {
+      setActivePage(parseInt(activePage));
+    };
+       
     function handleActivityDelete(e:SyntheticEvent<HTMLButtonElement>,id:string){
         setTarget(e.currentTarget.name);
         deleteUser(id);
@@ -28,7 +39,7 @@ export default function UserList({users,selectUser,deleteUser,submitting}:Props)
           </Table.Row>
         </Table.Header>    
         <Table.Body>
-        {users.map(user =>(
+        {tableData.map(user =>(
           <Table.Row key={user.id}>
             <Table.Cell>{user.nombre}</Table.Cell>
             <Table.Cell>{user.fechaNacimiento}</Table.Cell>
@@ -47,46 +58,34 @@ export default function UserList({users,selectUser,deleteUser,submitting}:Props)
         </Table.Body>
     
         <Table.Footer fullWidth>
+        <Table.Row>
+          <Table.HeaderCell colSpan="5">
+            <Pagination
+              activePage={activePage}
+              onPageChange={handlePaginationChange}
+              totalPages={Math.ceil(users.length / PAGE_SIZE)}
+              size="small"
+              floated='right'
+            />
+          </Table.HeaderCell>
+        </Table.Row>          
           <Table.Row>
-            <Table.HeaderCell />
-            <Table.HeaderCell colSpan='4'>
+            <Table.HeaderCell colSpan='5'>
               <Button
                 floated='right'
                 icon
                 labelPosition='left'
                 primary
                 size='small'
+                onClick={() => handleOpenModal()}
               >
                 <Icon name='user' /> Add User
-              </Button>              
+                </Button>              
             </Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
-      </Table>
-        
-       /* <Segment>
-            <Item.Group divided>
-                {activities.map(activity =>(
-                        <Item key ={activity.id}>
-                            <ItemContent>
-                                <Item.Header as="a">{activity.title}</Item.Header>
-                                <Item.Meta>{activity.date}</Item.Meta>
-                                <Item.Description>
-                                    <div>{activity.description}</div>
-                                    <div>{activity.city},{activity.venue}</div>
-                                </Item.Description>
-                                <Item.Extra>
-                                    <Button onClick={() => selectActivity(activity.id)} floated="right" content="View" color="blue"></Button>
-                                    <Button 
-                                        name={activity.id}
-                                        loading={submitting && target === activity.id} onClick={(e) => handleActivityDelete(e,activity.id)} floated="right" content="Delete" color="red"></Button>
-                                    <Label basic content={activity.category}/>
-                                </Item.Extra>
-                            </ItemContent>
-                        </Item>
-                ))}
-            </Item.Group>
-        </Segment>*/
+      </Table>      
+
     )
 
 }

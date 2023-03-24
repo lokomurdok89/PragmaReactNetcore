@@ -27,16 +27,16 @@ const request = {
     del:<T>(url:string)=> axios.delete<T>(url).then(responseBody),
 
 }
-const Activities ={
+const Users ={
     list:() => request.get<User[]>('/Users'),
     details:(id:string) => request.get<User>(`/Users/${id}`),
-    create:(activity:User)=> request.post<void>('/Users',activity),
-    update: (activity:User)=> request.put<void>(`/Users/${activity.id}`,activity),
+    create:(user:User)=> request.post<void>('/Users',user),
+    update: (user:User)=> request.put<void>(`/Users/${user.id}`,user),
     delete:(id:string) => request.del<void>(`/Users/${id}`),
 }
 
 const agent = {
-    Activities
+    Users
 }
 
 export default agent;

@@ -3,21 +3,19 @@ import { User } from '../model/user';
 import agent from '../api/agent';
 import LoadingComponent from './LoadingComponent';
 import NavBar from './NavBar';
+import {v4 as uuid} from 'uuid';
 import { Container } from 'semantic-ui-react';
-import UserDashboard from '../../features/users/UserDashboard';
-
-
+import UserDashboard from '../../features/users/dashboard/UserDashboard';
 
 function App() {
 
-  const [users, setUsers] = useState<User[]>([]);
-  const [selectedUser, setSelectedUser] = useState<User | undefined>(undefined);
-  const [editMode, setEditMode] = useState(false);
+  const [users, setUsers] = useState<User[]>([]); 
   const [loading, setLoading]=useState(true);
   const [submitting,setSubmitting]=useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(()=>{
-    agent.Activities.list()
+    agent.Users.list()
       .then(response => {
         let activities: User[] =[];
         response.forEach((element:User) => {
@@ -29,44 +27,26 @@ function App() {
         setLoading(false);
       })
   },[])
-  function handleSelectActivity(id:string){
-    setSelectedUser(users.find(x => x.id===id));
-  }
-
-  function handleCancelSelectedActivity(){
-    setSelectedUser(undefined);
-  }
-
-  function handleFormOpen(id?:string){
-    id? handleSelectActivity(id): handleCancelSelectedActivity();
-    setEditMode(true);
-
-  }
-
-  function handleFormClose(){
-    setEditMode(false);
-  }
 
   function handleCreateOrEditActivity(user: User){
     setSubmitting(true);
     if(user.id){
-      agent.Activities.update(user).then(()=>{
+      agent.Users.update(user).then(()=>{
         setUsers([...users.filter(x => x.id != user.id),user])
       })
     }else{
-      user.id = "";
-      agent.Activities.create(user).then(()=>{
+      user.id = uuid();
+      agent.Users.create(user).then(()=>{
         setUsers([...users, user]);  
       })
     }
-    setSelectedUser(user);
-    setEditMode(false);
-    setSubmitting(false);    
+    setSubmitting(false);
+    setIsOpen(false);    
   }
 
   function handleDeleteActivity(id:string){
     setSubmitting(true);
-    agent.Activities.delete(id).then(()=>{
+    agent.Users.delete(id).then(()=>{
       setUsers([...users.filter(x => x.id!==id)])
       setSubmitting(false);
     })   
@@ -75,20 +55,15 @@ function App() {
   if(loading) return<LoadingComponent content='Cargando App'/>
   
   return (
-    <Fragment>
-    <NavBar openForm={handleFormOpen}/>
+    <Fragment>   
     <Container style={{marginTop: '7em'}}>
      <UserDashboard 
                 users={users}
-                selectedUser={selectedUser}
-                selectUser = {handleSelectActivity}
-                cancelSelectUser = {handleCancelSelectedActivity}
-                editMode ={editMode}
-                openForm = {handleFormOpen}
-                closeForm = {handleFormClose}
                 createOrEdit={handleCreateOrEditActivity}
                 deleteUser ={handleDeleteActivity}
                 submitting ={submitting}
+                setOpen = {setIsOpen}
+                isOpen = {isOpen}
      />
     </Container>
 
