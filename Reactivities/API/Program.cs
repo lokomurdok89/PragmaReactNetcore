@@ -33,7 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
- app.Use((context, next) =>
+app.Use((context, next) =>
             {
                 context.Request.EnableBuffering();
                 return next();
