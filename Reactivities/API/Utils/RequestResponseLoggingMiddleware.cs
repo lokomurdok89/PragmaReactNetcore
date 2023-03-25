@@ -1,8 +1,8 @@
 
 using System.Net;
 using System.Text;
+using System.Text.Json;
 using Domain;
-using Newtonsoft.Json;
 
 namespace API.Utils
 {
@@ -66,26 +66,38 @@ namespace API.Utils
                     //Copy the contents of the new memory stream (which contains the response) to the original stream, which is then returned to the client.
                     await responseBody.CopyToAsync(originalBodyStream);
                 }
-
             }
             catch (Exception e) {
-                await HandleExceptionAsync(context);
-            
+                await HandleExceptionAsync(context, e);            
             }
         }
-
-        private Task HandleExceptionAsync(HttpContext context)
+        private async Task HandleExceptionAsync(HttpContext context,Exception exception)
         {
-            context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorDetails
+           var statusCode = (int)HttpStatusCode.InternalServerError;
+           var message = "An error occurred while processing your request.";
+
+            if (exception is UnauthorizedAccessException)
             {
-                StatusCode = context.Response.StatusCode,
-                Message = "Internal Server Error Middlewere"
-            }));
+                statusCode = (int)HttpStatusCode.Unauthorized;
+                message = "Unauthorized access.";
+            }
+            else if (exception is Exception)
+            {
+                statusCode = (int)HttpStatusCode.BadRequest;
+                message = exception.Message;
+            }
 
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = statusCode;
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+           
+            var json  = System.Text.Json.JsonSerializer.Serialize(new ErrorDetails(statusCode),options);
+
+            await context.Response.WriteAsync(json);
         }
-
         private async Task<string> FormatRequest(HttpRequest request)
         {
             var body = request.Body;

@@ -29,6 +29,12 @@ namespace API.Controllers
         public async Task<IActionResult> DeleteUser(Guid Id){
             return Ok(await Mediator.Send(new Delete.Command{Id = Id}));
         }
+        [HttpGet]
+        [Route("Exception")]
+        public async Task<ActionResult<List<User>>> GetException(){           
+          
+           return await Mediator.Send(new UserException.Query());   
+        }    
         
     }
 }

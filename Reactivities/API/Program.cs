@@ -1,8 +1,12 @@
+using System.Net;
 using API.Extension;
 using API.Utils;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Serilog;
+using Newtonsoft.Json;
+using Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +40,21 @@ app.UseHttpsRedirection();
             });
 app.UseAuthorization();
 app.MapControllers();
-app.UseMiddleware(typeof(RequestResponseLoggingMiddleware));
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
+app.UseExceptionHandler(appError => {
+                appError.Run(async conext =>
+                {
+                    conext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    conext.Response.ContentType = "application/json";
+
+                    var contextFeature = conext.Features.Get<IExceptionHandlerFeature>();
+                    if (contextFeature!=null) {
+
+                       // error.Message "Hola ";
+                        await conext.Response.WriteAsync(JsonConvert.SerializeObject(new ErrorDetails (conext.Response.StatusCode)));
+                    }
+                });
+            });
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
