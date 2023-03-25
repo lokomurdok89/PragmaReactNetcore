@@ -1,10 +1,19 @@
 using API.Extension;
+using API.Utils;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var logger = new LoggerConfiguration()
+					.ReadFrom.Configuration(builder.Configuration)
+					.Enrich.FromLogContext()
+					.CreateLogger();
+
+//builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
@@ -20,10 +29,14 @@ if (app.Environment.IsDevelopment())
 app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
-
+ app.Use((context, next) =>
+            {
+                context.Request.EnableBuffering();
+                return next();
+            });
 app.UseAuthorization();
-
 app.MapControllers();
+app.UseMiddleware(typeof(RequestResponseLoggingMiddleware));
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
@@ -37,8 +50,8 @@ try
 catch (Exception ex)
 {
     
-    var logger = services.GetRequiredService<ILogger<Program>>();
-    logger.LogError(ex,"Error al cargar la base de datos");
+    var logs = services.GetRequiredService<ILogger<Program>>();
+    logs.LogError(ex,"Error al cargar la base de datos");
 }
 
 app.Run();

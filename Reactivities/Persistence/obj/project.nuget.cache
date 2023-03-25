@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B9uf4Sk6qbEfBIg6TkCJzjmq9n1HJxZ0h0Y+5DR1D4KjVpOAiRu5SR3eGGjuBqxR4Dr8HBfaXX5EgcvHLfdYSw==",
+  "dgSpecHash": "2dGIEmKHEUAM/JoToC+EXBJbGGcn386YYspHQLFFkmrmEJVyZpzT9t/2lg79nJT3KbtZdp5VJbeJE2+zLycNYw==",
   "success": true,
   "projectFilePath": "C:\\Repos\\TestPragma\\PragmaReactNetcore\\Reactivities\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\dtoledo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\dtoledo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.2\\sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\dtoledo\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

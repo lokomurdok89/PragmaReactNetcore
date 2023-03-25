@@ -13,6 +13,8 @@ namespace API.Extension
                                                                 IConfiguration config)
         {           
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            
+            services.AddHttpContextAccessor();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddDbContext<DataContext>(opt => {
@@ -26,8 +28,10 @@ namespace API.Extension
 
             });
 
-            services.AddMediatR(typeof(List.Handler));   
-
+            services.AddMediatR(typeof(List.Handler));  
+            services.AddOptions();
+            
+           
             return services;
         }
         
