@@ -18,8 +18,8 @@ namespace Application.Users
             }
             public Task<List<User>> Handle(Query request, CancellationToken cancellationToken)
             {    
-                 throw new Exception("Esta es una Excepcion COntrolada");     
-               // return await _context.Users.ToListAsync();
+                 throw new Exception("Esta es una Excepcion COntrolada");    
+
             }
         }
     }

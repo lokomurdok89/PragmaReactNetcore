@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using Domain;
 
-namespace API.Utils
+namespace API.Extension
 {
     public class RequestResponseLoggingMiddleware
     {
